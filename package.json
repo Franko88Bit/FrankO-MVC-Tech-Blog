@@ -1,11 +1,33 @@
 {
+  "name": "FrankO-MVC-Tech-Blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "resetdb": "mysql -u root -p <  ./db/schema.sql",
+    "seed": "node seeds/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrankO88Bit/FrankO-MVC-tech-Blog.git"
+  },
+  "author": "Frank Alvarez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FrankO88Bit/FrankO-MVC-Tech-Blog/issues"
+  },
+  "homepage": "https://github.com/FrankO/MVC-Tech-Blog#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "connect-session-sequelize": "^7.1.7",
     "dotenv": "^16.3.1",
-    "express-handlebars": "^7.0.7",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.7",
     "express-session": "^1.17.3",
-    "mysql2": "^3.5.1",
+    "mysql2": "^2.3.3",
     "sequelize": "^6.32.1"
   }
 }
