@@ -1,35 +1,53 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
-const bcrypt = require("bcrypt")
+const bcrypt = require('bcrypt');
+const sequelize = require('../config/config');
 
-class User extends Model {}
-
-User.init({
-// Adding properites here
-    username: {
-        type: DataTypes.STRING,
-        allowNull:false,
-        unique:true
-    },
-    password:{
-        type:DataTypes.STRING,
-        allowNull:false,
-        validate:{
-            len:[8]
-        }
+class User extends Model {
+    checkPassword(loginPW) {
+        return bcrypt.compareSync(loginPW, this.password);
     }
-},{
-    hooks:{
-        beforeCreate:async userdata=>{
-            userdata.password = await bcrypt.hash(userdata.password,5)
-                return userdata
-        }
+}
+
+User.init(
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        username: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [4],
+              },
+        },
     },
-    sequelize,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'user',
+    {
+        hooks: {
+            async beforeCreate(newUserData) {
+                newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                return newUserData;
+            },
+            async beforeUpdate(updateUserData) {
+                updateUserData.password = await bcrypt.hash(
+                    updateUserData.password,
+                    10
+                );
+                return updateUserData;
+            },
+        },
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'user'
+    });
 
-});
-
-module.exports=User
+module.exports = User;

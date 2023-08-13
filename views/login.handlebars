@@ -1,19 +1,23 @@
-<section class="card text-center">
-      <div class="card-body">
-        <h3 class="card-title">Login</h3>
-        <form id="login">
-            <div class="card-text">
-            <label for="loginUsername">Username</label>
-            <input type="text" placeholder="username" id="loginUsername">
-            </div>
-            <div class="card-text">
-            <label for="loginPassword">Password</label>
-            <input type="text" placeholder="password" id="loginPassword">
-            </div>
-            <button>Login!</button><br>
-            <a href="/signup">Signup instead</a>
-        </form>
-    </div>
-</section>
+<div class="card flex-column">
+    <h2 class="card-header">Enter username and password to log in</h2>
+    <form id="login-form" class="card-body">
+        <div class="mb-6">
+            <label for="username" class="form-label">Username</label>
+            <input placeholder="Enter username" type="username" class="form-control" id="username-login">
+            <div id="usernameHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
 
-<script src="/js/login.js"></script>
+        <div class="mb-6">
+            <label for="password" class="form-label">Password</label>
+            <input placeholder="Enter password" type="password" class="form-control" id="password-login">
+            <div id="passwordHelp" class="form-text">Must be 4 digits long.</div>
+        </div>
+
+        <div class="mb-6">
+            <a href="/signup">Don't have an account? Signup here</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="login-btn">Log In</button>
+    </form>
+</div>
+<script src="js/login.js"></script>
