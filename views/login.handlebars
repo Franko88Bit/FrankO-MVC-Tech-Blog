@@ -1,23 +1,15 @@
-<div class="card flex-column">
-    <h2 class="card-header">Enter username and password to log in</h2>
-    <form id="login-form" class="card-body">
-        <div class="mb-6">
-            <label for="username" class="form-label">Username</label>
-            <input placeholder="Enter username" type="username" class="form-control" id="username-login">
-            <div id="usernameHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
+<div class="card">
+  <h3 class="card-header">Login</h3>
+  <form id="login-form" class="card-body">
+    <label class="form-label" for="username-login">Username</label>
+    <input id="username-login" type="text" autofocus="true" class="form-input" />
 
-        <div class="mb-6">
-            <label for="password" class="form-label">Password</label>
-            <input placeholder="Enter password" type="password" class="form-control" id="password-login">
-            <div id="passwordHelp" class="form-text">Must be 4 digits long.</div>
-        </div>
+    <label class="form-label" for="password-login">Password</label>
+    <input id="password-login" type="password" autofocus="true" class="form-input" />
 
-        <div class="mb-6">
-            <a href="/signup">Don't have an account? Signup here</a>
-        </div>
-
-        <button type="submit" class="btn btn-primary" id="login-btn">Log In</button>
-    </form>
+    <button type="submit" class="btn">Login!</button>
+    <a class="login-link" href="/signup">Sign up instead</a>
+  </form>
 </div>
-<script src="js/login.js"></script>
+
+<script src="/javascript/login.js"></script>

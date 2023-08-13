@@ -1,5 +1,7 @@
-<div class="posts">
-    {{#each posts as |post|}}
-    {{> postcard post}}
+<article class="post">
+
+    {{#each posts as |post| }}
+    {{> post-info post}}
     {{/each}}
-</div>
+
+</article>
